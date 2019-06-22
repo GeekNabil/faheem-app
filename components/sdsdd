@@ -1,0 +1,59 @@
+<View style={styles.resetInput}>
+          <View>
+            <Input
+              ref="username"
+              autoCapitalize="none"
+              placeholderTextColor="grey"
+              inputStyle={{ color: "#fff" }}
+              inputContainerStyle={{
+                width: width * 0.7
+              }}
+              placeholder="Enter your username"
+              onChangeText={value => this.setState({ username: value })}
+            />
+          </View>
+          <View>
+            <TouchableOpacity onPress={this.resetPassword}>
+              <FontAwesome name="paper-plane" size={24} color="#fff" />
+            </TouchableOpacity>
+          </View>
+        </View>
+
+resetInput: {
+    width: width * 0.85,
+    backgroundColor: "black",
+    borderRadius: 8,
+    flexDirection: "row",
+    alignItems: "center",
+    justifyContent: "space-evenly",
+    alignSelf: "center",
+    paddingVertical: 8
+  }
+Chat Conversation End
+Type a message...
+
+
+
+import React, { Component } from 'react'; 
+import { createStackNavigator, createAppContainer } from "react-navigation";
+import Find from './find';
+import Search from './search';
+
+
+const StackNav = createStackNavigator(
+  {
+    find : {screen : Find},
+    search : {screen : Search}
+  },{
+        headerMode: "none",
+        mode: "modal",
+        defaultNavigationOptions: {
+          gesturesEnabled: false
+        }
+      
+    }
+) ;
+ 
+export default createAppContainer(StackNav)
+
+
